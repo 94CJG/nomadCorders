@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import Items from './components/Items';
+import Items from '../components/Items';
 
 function Home() {
   const [loading, setLoading] = useState(true);
