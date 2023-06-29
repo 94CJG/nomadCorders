@@ -32,6 +32,7 @@ function Home() {
 						//이 값들을 ./component/Items안에 함수 쪽에다가 현재 넘겨줌 
 						// 
               key={items.id}
+              id={items.id}
               coverImg={items.medium_cover_image}
               title={items.title}
               summary={items.summary}

@@ -5,7 +5,8 @@ function App() {
   return (
     <Router>
       <Switch>
-        <Route path="/movie">
+        <Route path="/items/:id"> 
+        {/* 8번째줄은 id값이 무엇인지 React Router한테 알고 싶다고 말을 하는 것이다. */}
           <Detail />
         </Route>
         <Route path="/">
