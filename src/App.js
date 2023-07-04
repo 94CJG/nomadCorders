@@ -1,45 +1,23 @@
-import { useEffect, useState } from 'react';
-
+import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import Home from './routes/Home';
+import Detail from './routes/Detail';
 function App() {
-  const [loading, setLoading] = useState(true);
-  const [movies, setMovies] = useState([]);
-
-  const getMovies = async () => {
-    const response = await fetch(
-      'https://yts.mx/api/v2/list_movies.json?minimum_rating=9&sort_by=year'
-    );
-    const json = await response.json();
-    setMovies(json.data.movies);
-    setLoading(false);
-  };
-
-  useEffect(() => {
-    getMovies();
-  }, []);
-
-  console.log(movies);
-
   return (
-    <div>
-      {loading ? (
-        <h1>Loading...</h1>
-      ) : (
-        <div>
-          {movies.map((item) => (
-            <div key={item.id}>
-              <img src={item.medium_cover_image} alt='중앙이미지'/>
-              <h2>{item.title}</h2>
-              <p>{item.summary}</p>
-              <ul>
-                {item.genres.map((g) => (
-                  <li key={g}>{g}</li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
-      )}
-    </div>
+    <Router>
+      <Switch>
+        <Route path="/items/:id"> 
+        {/* 8번째줄은 id값이 무엇인지 React Router한테 알고 싶다고 말을 하는 것이다. */}
+          <Detail />
+        </Route>
+        <Route path="/">
+          {/*누군가 나의 웹사이트 "/"url에 있다면 Home 컴포넌트를 보여줄 것이다.*/}
+          <Home />
+        </Route>
+      </Switch>
+    </Router>
   );
+  //Router -> 누군가 만들어 놓은 컴포넌트를 그냥 사용하면 된다.
 }
 export default App;
+
+
