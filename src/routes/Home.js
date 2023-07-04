@@ -28,9 +28,6 @@ function Home() {
         <div>
           {movies.map((items) => (
             <Items
-						// 함수 Items라는 것을 호출함.
-						//이 값들을 ./component/Items안에 함수 쪽에다가 현재 넘겨줌 
-						// 
               key={items.id}
               id={items.id}
               coverImg={items.medium_cover_image}
@@ -46,10 +43,3 @@ function Home() {
 }
 
 export default Home;
-/**
- * coverImg는 우리의 prop이므로 원하는대로 이름을 지을 수 있다.
- * 30번째줄 => props으로써 우리의 component로 넘겨서,
- * 현재 Itme.js 파일에 넘겨서 사용 해 줄수 있게 만들어주고 있다. 
- * key는 React.js 에서만, map 안에서 component들을 render할
- * 때 사용하는 것! 매우 중요하다.
- */

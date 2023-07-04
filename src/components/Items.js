@@ -27,8 +27,3 @@ Items.propTypes = {
 };
 
 export default Items;
-
-/**
- * 현재 props는 객체이다. 부모 컴포넌트에서
- * 매개변수를 받아와 사용 하고, 부모 컴포넌트에서 다시 Items라는 컴포넌트를 사용한다. Home.js 참고!
- */
